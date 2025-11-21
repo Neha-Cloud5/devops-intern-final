@@ -1,0 +1,17 @@
+Started Loki:
+docker run -d --name=loki -p 3100:3100 grafana/loki:2.9.0
+
+Created log folder:
+mkdir C:\var\log
+echo "Hello Loki from Promtail" >> C:\var\log\test.log
+
+Started Promtail:
+docker run -d --name=promtail `
+  -v "C:\path\to\promtail-config.yaml:/etc/promtail/promtail-config.yaml" `
+  -v "C:\var\log:/var/log" `
+  grafana/promtail:2.9.0 `
+  --config.file=/etc/promtail/promtail-config.yaml
+
+Verified logs:
+curl -G "http://localhost:3100/loki/api/v1/query" --data-urlencode "query={job=\"windows\"}"
+
