@@ -27,7 +27,8 @@ This repository demonstrates a complete DevOps workflow:
 ### `hello.py`
 ```python
 print("Hello, DevOps!")
- 
+ ```
+
 - python hello.py
 
 ---
@@ -37,11 +38,13 @@ print("Hello, DevOps!")
 - Created folder: scripts/
 - Added shell script: sysinfo.sh
 scripts/sysinfo.sh
+```
 #!/bin/bash
 echo "System Information:"
 whoami
 date
 df -h
+```
 
 ### Make file executable
 chmod +x scripts/sysinfo.sh
@@ -57,10 +60,12 @@ chmod +x scripts/sysinfo.sh
 A simple Dockerfile was created to containerize the hello.py script.
 
 Dockerfile
+```
 FROM python:3.10-slim
 COPY hello.py /app/hello.py
 WORKDIR /app
 CMD ["python3", "hello.py"]
+```
 
 -Build Docker Image
 docker build -t hello-devops .
@@ -76,9 +81,10 @@ c:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot (200).png
 
 ---
 
-4. CI/CD with GitHub Actions
+## 4. CI/CD with GitHub Actions
 - Created workflow: .github/workflows/ci.yml
 ci.yml
+```
 name: CI Pipeline
 
 on: [push]
@@ -90,16 +96,16 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run hello.py
         run: python hello.py
-
-
+```
 - Added status badge to
 
 ![CI](https://github.com/Neha-Cloud5/developers-intern-final/actions/workflows/ci.yml/badge.svg)
 
 ---
- 5. Job Deployment with Nomad
+ ## 5. Job Deployment with Nomad
 - Created job file: nomad/hello.nomad
 hello.nomad
+```
 job "hello-devops" {
   type = "service"
 
@@ -118,15 +124,15 @@ job "hello-devops" {
     }
   }
 }
-
-Run the job
+```
+### Run the job
 nomad job run nomad/hello.nomad
 
 ![Nomad](Screenshorts/nomad.png)
 
 ---
 
-6. Monitoring with Grafana Loki
+## 6. Monitoring with Grafana Loki
 - Loki and Promtail configured via Docker
 - Logs forwarded from container to Loki
 - Verified via Grafana Explore
