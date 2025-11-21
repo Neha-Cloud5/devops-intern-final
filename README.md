@@ -77,7 +77,9 @@ docker run hello-devops
 -Expected output:
 
 Hello, Devops !
-c:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot (200).png
+
+![Docker](Screenshorts/docker.png)
+
 
 ---
 
@@ -99,7 +101,9 @@ jobs:
 ```
 - Added status badge to
 
-![CI](https://github.com/Neha-Cloud5/developers-intern-final/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/Neha-Cloud5/devops-intern-final/actions/workflows/ci.yml/badge.svg)
+
+![Git-Action](Screenshorts/git-action.png)
 
 ---
  ## 5. Job Deployment with Nomad
@@ -130,6 +134,7 @@ nomad job run nomad/hello.nomad
 
 ![Nomad](Screenshorts/nomad.png)
 
+![Nginx](Screenshorts/nginx.png)
 ---
 
 ## 6. Monitoring with Grafana Loki
@@ -155,6 +160,8 @@ Verified logs:
 curl -G "http://localhost:3100/loki/api/v1/query" --data-urlencode "query={job=\"windows\"}"
 
 ![Grafana Logs](Screenshorts/grafana-loki.png)
+
+
 
 
 
