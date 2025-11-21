@@ -122,7 +122,7 @@ job "hello-devops" {
 Run the job
 nomad job run nomad/hello.nomad
 
-c:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot 2025-11-21 153230.png
+![Nomad](Screenshorts/nomad.png)
 
 ---
 
@@ -148,6 +148,7 @@ docker run -d --name=promtail `
 Verified logs:
 curl -G "http://localhost:3100/loki/api/v1/query" --data-urlencode "query={job=\"windows\"}"
 
-c:\Users\HP\OneDrive\Pictures\Screenshots\Screenshot (199).png
+![Grafana Logs](Screenshorts/grafana-loki.png)
+
 
 
